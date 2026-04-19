@@ -30,11 +30,9 @@ std::string infx2pstfx(const std::string& inf) {
             }
             --i;
             output += num + " ";
-        }
-        else if (c == '(') {
+        } else if (c == '(') {
             stack.push(c);
-        }
-        else if (c == ')') {
+        } else if (c == ')') {
             while (!stack.isEmpty() && stack.top() != '(') {
                 output += stack.pop();
                 output += " ";
@@ -42,8 +40,7 @@ std::string infx2pstfx(const std::string& inf) {
             if (!stack.isEmpty() && stack.top() == '(') {
                 stack.pop();
             }
-        }
-        else if (c == '+' || c == '-' || c == '*' || c == '/') {
+        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
             while (!stack.isEmpty() && priority(stack.top()) >= priority(c)) {
                 output += stack.pop();
                 output += " ";
